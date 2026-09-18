@@ -4,18 +4,28 @@ import React, { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { SIMULATION_FACILITIES, getEnrichedInventory } from '@/data/mockData';
 import { getFacilitySummaries, detectRegionalShortages } from '@/lib/riskEngine';
-import { MapPin, ShieldAlert, Sparkles } from 'lucide-react';
+import { MapPin, ShieldAlert } from 'lucide-react';
 
-// Dynamic import of Leaflet map with ssr disabled to prevent browser 'window' errors
 const RajasthanLeafletMap = dynamic(
   () => import('@/components/map/RajasthanLeafletMap'),
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-[540px] bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 border border-slate-200">
+      <div
+        className="w-full h-[540px] rounded-lg flex items-center justify-center"
+        style={{
+          backgroundColor: 'var(--surface)',
+          border: '1px solid var(--border)',
+        }}
+      >
         <div className="flex flex-col items-center gap-2">
-          <div className="w-8 h-8 border-3 border-blue-600 border-t-transparent rounded-full animate-spin" />
-          <span className="text-xs font-semibold text-slate-600">Loading Rajasthan Geographic Network...</span>
+          <div
+            className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin"
+            style={{ borderColor: '#2563eb', borderTopColor: 'transparent' }}
+          />
+          <span className="text-xs font-medium" style={{ color: 'var(--text-3)' }}>
+            Loading map...
+          </span>
         </div>
       </div>
     ),
@@ -32,29 +42,42 @@ export default function RegionalMapPage() {
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
-      {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
+          <div className="flex items-center gap-2 mb-1">
+            <MapPin className="w-4 h-4 shrink-0" style={{ color: '#2563eb' }} />
+            <h1 className="text-lg font-bold" style={{ color: 'var(--text-1)' }}>
               Regional Healthcare Facility Map
             </h1>
-            <span className="text-xs font-semibold bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full border border-blue-200">
+            <span
+              className="text-[10px] font-semibold px-2 py-0.5 rounded"
+              style={{
+                backgroundColor: 'rgba(37,99,235,0.1)',
+                color: '#2563eb',
+                border: '1px solid rgba(37,99,235,0.2)',
+              }}
+            >
               Interactive GIS
             </span>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            Geographic visualization of Rajasthan healthcare facilities, critical inventory depletion days, and regional shortage zones.
+          <p className="text-xs" style={{ color: 'var(--text-3)' }}>
+            Geographic overview of Rajasthan healthcare facilities, inventory depletion status, and shortage zones.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-900 px-3 py-1.5 rounded-xl text-xs">
-          <ShieldAlert className="w-4 h-4 text-amber-600 shrink-0" />
-          <span>Real Coordinates • Simulated Inventory</span>
+        <div
+          className="flex items-center gap-2 px-3 py-1.5 rounded text-xs shrink-0"
+          style={{
+            backgroundColor: 'rgba(217,119,6,0.08)',
+            border: '1px solid rgba(217,119,6,0.25)',
+            color: '#b45309',
+          }}
+        >
+          <ShieldAlert className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+          <span>Real coordinates, simulated inventory</span>
         </div>
       </div>
 
-      {/* Map Component */}
       <RajasthanLeafletMap
         facilities={facilitySummaries}
         regionalAlerts={regionalAlerts}

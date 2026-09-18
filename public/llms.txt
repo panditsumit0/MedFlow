@@ -1,0 +1,37 @@
+# MedFlow — Regional Medicine Shortage Intelligence System
+
+## What is MedFlow?
+
+MedFlow is a hackathon demonstration project that monitors medicine inventory across Rajasthan healthcare facilities, predicts shortage risks before they spread, and recommends stock redistribution routes.
+
+Built for: Manipal University Jaipur Hackathon 2026
+Problem statement: P10 — From One Empty Shelf to a Regional Shortage
+
+## Core Functionality
+
+- **Shortage Prediction**: Calculates days-remaining using `stock / daily_consumption`. Classifies risk as CRITICAL (0-3d), HIGH (4-7d), WARNING (8-14d), SAFE (15+d).
+- **Regional Alert Detection**: Identifies when 2 or more facilities in a region are running low on the same medicine simultaneously.
+- **Redistribution Engine**: Matches surplus facilities to depleting facilities by geographic proximity.
+- **What-If Simulation**: Models demand surge scenarios (e.g. +30% consumption) to pre-empt crises.
+- **Regional Map**: Leaflet + OpenStreetMap showing all 10 Rajasthan facilities coloured by risk level.
+
+## Data
+
+All data in this system is simulated for demonstration purposes. No real patient or facility data is used.
+10 fictional healthcare facilities across Rajasthan districts: Jaipur, Jodhpur, Bikaner, Kota, Ajmer, Udaipur, Alwar, Bharatpur, Sikar, Chittorgarh.
+
+## Tech Stack
+
+- Framework: Next.js (App Router)
+- Language: TypeScript
+- Maps: Leaflet + OpenStreetMap
+- Charts: Recharts
+- Styling: Tailwind CSS v4 with CSS variable theme system (light/dark/system)
+
+## Source Code
+
+https://github.com/panditsumit0/MedFlow
+
+## Contact
+
+contact@panditsumit0.dev

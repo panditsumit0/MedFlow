@@ -110,12 +110,28 @@ export default function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="p-3.5" style={{ borderTop: '1px solid var(--sidebar-border)' }}>
+      <div className="p-3.5 space-y-2" style={{ borderTop: '1px solid var(--sidebar-border)' }}>
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#4ade80' }} />
           <span className="text-[11px]" style={{ color: 'var(--sidebar-bottom)' }}>
             Rajasthan · 10 facilities · Demo
           </span>
+        </div>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/privacy"
+            className="text-[10px] hover:underline"
+            style={{ color: 'var(--sidebar-section)' }}
+          >
+            Privacy
+          </Link>
+          <Link
+            href="/terms"
+            className="text-[10px] hover:underline"
+            style={{ color: 'var(--sidebar-section)' }}
+          >
+            Terms
+          </Link>
         </div>
       </div>
     </aside>
