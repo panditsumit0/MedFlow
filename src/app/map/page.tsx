@@ -45,16 +45,16 @@ export default function RegionalMapPage() {
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <MapPin className="w-4 h-4 shrink-0" style={{ color: '#2563eb' }} />
+            <MapPin className="w-4 h-4 shrink-0" style={{ color: 'var(--accent)' }} />
             <h1 className="text-lg font-bold" style={{ color: 'var(--text-1)' }}>
               Regional Healthcare Facility Map
             </h1>
             <span
               className="text-[10px] font-semibold px-2 py-0.5 rounded"
               style={{
-                backgroundColor: 'rgba(37,99,235,0.1)',
-                color: '#2563eb',
-                border: '1px solid rgba(37,99,235,0.2)',
+                backgroundColor: 'var(--accent-bg)',
+                color: 'var(--accent)',
+                border: '1px solid var(--border)',
               }}
             >
               Interactive GIS

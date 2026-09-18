@@ -112,7 +112,7 @@ export default function ExplainRiskModal({ item, onClose }: ExplainRiskModalProp
           <button
             onClick={onClose}
             className="px-4 py-1.5 rounded text-xs font-semibold text-white transition-opacity hover:opacity-80"
-            style={{ backgroundColor: '#1e3a5f' }}
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
           >
             Close
           </button>

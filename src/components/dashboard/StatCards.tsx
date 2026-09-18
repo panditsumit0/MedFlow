@@ -13,8 +13,8 @@ export default function StatCards({ stats }: StatCardsProps) {
       value: stats.totalFacilities,
       subtext: 'Monitored across Rajasthan',
       icon: Building2,
-      accent: '#2563eb',
-      accentBg: 'rgba(37,99,235,0.1)',
+      accent: 'var(--accent)',
+      accentBg: 'var(--accent-bg)',
     },
     {
       title: 'Total Medicines',
@@ -27,7 +27,7 @@ export default function StatCards({ stats }: StatCardsProps) {
     {
       title: 'Critical Medicines',
       value: stats.criticalMedicinesCount,
-      subtext: '≤ 3 days remaining',
+      subtext: '3 days remaining or less',
       icon: AlertTriangle,
       accent: '#dc2626',
       accentBg: 'rgba(220,38,38,0.1)',

@@ -61,7 +61,7 @@ export default function Header() {
                 className="flex items-center gap-1 px-2 py-1 rounded-md text-[11px] font-medium transition-all"
                 style={{
                   backgroundColor: isActive ? 'var(--surface)' : 'transparent',
-                  color: isActive ? 'var(--text-1)' : 'var(--text-3)',
+                  color: isActive ? 'var(--accent)' : 'var(--text-3)',
                   boxShadow: isActive ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
                 }}
               >

@@ -15,9 +15,9 @@ export default function NotFound() {
       <div className="max-w-md w-full text-center">
         <div
           className="inline-flex items-center justify-center w-16 h-16 rounded-xl mb-6"
-          style={{ backgroundColor: 'rgba(37,99,235,0.1)' }}
+          style={{ backgroundColor: 'var(--accent-bg)' }}
         >
-          <span className="text-2xl font-bold" style={{ color: '#2563eb' }}>404</span>
+          <span className="text-2xl font-bold" style={{ color: 'var(--accent)' }}>404</span>
         </div>
 
         <h1 className="text-xl font-bold mb-2" style={{ color: 'var(--text-1)' }}>
@@ -31,7 +31,7 @@ export default function NotFound() {
           <Link
             href="/"
             className="px-4 py-2 rounded text-sm font-medium text-white transition-opacity hover:opacity-80"
-            style={{ backgroundColor: '#1e3a5f' }}
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
           >
             Go to Dashboard
           </Link>

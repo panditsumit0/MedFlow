@@ -31,9 +31,9 @@ export default function DashboardPage() {
         <div
           className="text-[11px] font-medium px-2.5 py-1 rounded"
           style={{
-            backgroundColor: 'rgba(37,99,235,0.1)',
-            color: '#2563eb',
-            border: '1px solid rgba(37,99,235,0.2)',
+            backgroundColor: 'var(--accent-bg)',
+            color: 'var(--accent)',
+            border: '1px solid var(--border)',
           }}
         >
           Simulation Data · Sept 2026

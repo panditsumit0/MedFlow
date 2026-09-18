@@ -47,7 +47,10 @@ export default function Sidebar() {
       {/* Brand */}
       <div className="p-4" style={{ borderBottom: '1px solid var(--sidebar-border)' }}>
         <Link href="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#3b82f6' }}>
+          <div
+            className="w-8 h-8 rounded-lg flex items-center justify-center"
+            style={{ backgroundColor: 'var(--sidebar-brand-bg)' }}
+          >
             <Activity className="w-4 h-4 text-white" />
           </div>
           <div>

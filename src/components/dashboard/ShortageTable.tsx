@@ -99,7 +99,7 @@ export default function ShortageTable({ items, onSelectForExplanation }: Shortag
               placeholder="Search medicine or city..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-8 pr-2.5 py-1.5 text-xs rounded focus:outline-none focus:border-blue-400"
+              className="pl-8 pr-2.5 py-1.5 text-xs rounded focus:outline-none focus:border-[var(--accent)]"
               style={inputStyle}
             />
           </div>
@@ -107,7 +107,7 @@ export default function ShortageTable({ items, onSelectForExplanation }: Shortag
           <select
             value={selectedRisk}
             onChange={(e) => setSelectedRisk(e.target.value)}
-            className="px-2.5 py-1.5 text-xs rounded focus:outline-none focus:border-blue-400"
+            className="px-2.5 py-1.5 text-xs rounded focus:outline-none focus:border-[var(--accent)]"
             style={inputStyle}
           >
             <option value="ALL">All Risk Levels</option>
@@ -120,7 +120,7 @@ export default function ShortageTable({ items, onSelectForExplanation }: Shortag
           <select
             value={selectedFacility}
             onChange={(e) => setSelectedFacility(e.target.value)}
-            className="px-2.5 py-1.5 text-xs rounded focus:outline-none focus:border-blue-400"
+            className="px-2.5 py-1.5 text-xs rounded focus:outline-none focus:border-[var(--accent)]"
             style={inputStyle}
           >
             <option value="ALL">All Facilities</option>
@@ -188,7 +188,7 @@ export default function ShortageTable({ items, onSelectForExplanation }: Shortag
                   <td className="py-3 px-4 text-center">
                     <DaysCell days={item.days_remaining} risk={item.risk_level} />
                   </td>
-                  <td className="py-3 px-4 text-right" style={{ color: item.incoming_stock > 0 ? '#2563eb' : 'var(--text-3)' }}>
+                  <td className="py-3 px-4 text-right" style={{ color: item.incoming_stock > 0 ? 'var(--accent)' : 'var(--text-3)' }}>
                     {item.incoming_stock > 0 ? `+${item.incoming_stock}` : '—'}
                   </td>
                   <td className="py-3 px-4 text-center">
@@ -198,7 +198,7 @@ export default function ShortageTable({ items, onSelectForExplanation }: Shortag
                     <button
                       onClick={() => onSelectForExplanation(item)}
                       className="text-xs font-medium hover:underline"
-                      style={{ color: '#2563eb' }}
+                      style={{ color: 'var(--accent)' }}
                     >
                       Explain
                     </button>
