@@ -19,9 +19,9 @@ export default function DashboardPage() {
   return (
     <div className="space-y-5 max-w-7xl mx-auto pb-12">
       {/* Page Title Row */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5">
         <div>
-          <h1 className="text-lg font-bold" style={{ color: 'var(--text-1)' }}>
+          <h1 className="text-lg sm:text-xl font-bold" style={{ color: 'var(--text-1)' }}>
             Dashboard Overview
           </h1>
           <p className="text-xs mt-0.5" style={{ color: 'var(--text-3)' }}>
@@ -29,7 +29,7 @@ export default function DashboardPage() {
           </p>
         </div>
         <div
-          className="text-[11px] font-medium px-2.5 py-1 rounded"
+          className="self-start sm:self-auto text-[11px] font-medium px-2.5 py-1 rounded"
           style={{
             backgroundColor: 'var(--accent-bg)',
             color: 'var(--accent)',

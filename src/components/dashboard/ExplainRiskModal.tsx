@@ -14,12 +14,15 @@ export default function ExplainRiskModal({ item, onClose }: ExplainRiskModalProp
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ backgroundColor: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(4px)' }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4"
+      style={{ backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)' }}
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="risk-modal-title"
     >
       <div
-        className="rounded-xl shadow-2xl max-w-md w-full overflow-hidden"
+        className="rounded-xl shadow-2xl max-w-md w-full overflow-hidden max-h-[90vh] flex flex-col"
         style={{
           backgroundColor: 'var(--surface)',
           border: '1px solid var(--border)',
@@ -28,11 +31,11 @@ export default function ExplainRiskModal({ item, onClose }: ExplainRiskModalProp
       >
         {/* Header */}
         <div
-          className="px-5 py-4 flex items-center justify-between"
+          className="px-4 sm:px-5 py-3.5 sm:py-4 flex items-center justify-between shrink-0"
           style={{ borderBottom: '1px solid var(--border)' }}
         >
           <div>
-            <h3 className="text-sm font-semibold" style={{ color: 'var(--text-1)' }}>
+            <h3 id="risk-modal-title" className="text-sm font-semibold" style={{ color: 'var(--text-1)' }}>
               Shortage Risk Breakdown
             </h3>
             <p className="text-xs" style={{ color: 'var(--text-3)' }}>
@@ -41,15 +44,16 @@ export default function ExplainRiskModal({ item, onClose }: ExplainRiskModalProp
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded hover:opacity-70 transition-opacity"
+            className="p-2 -mr-1 rounded hover:opacity-70 transition-opacity"
             style={{ color: 'var(--text-3)' }}
+            aria-label="Close dialog"
           >
-            <X className="w-4 h-4" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-5 space-y-4 text-xs">
+        <div className="p-4 sm:p-5 space-y-4 text-xs overflow-y-auto flex-1">
           <div>
             <span
               className="text-[11px] uppercase font-medium tracking-wider"
@@ -71,7 +75,7 @@ export default function ExplainRiskModal({ item, onClose }: ExplainRiskModalProp
             style={{ backgroundColor: 'var(--surface-2)', border: '1px solid var(--border)' }}
           >
             <span className="font-semibold block" style={{ color: 'var(--text-2)' }}>Formula:</span>
-            <div className="font-mono" style={{ color: 'var(--text-1)' }}>
+            <div className="font-mono text-[11px] sm:text-xs break-all" style={{ color: 'var(--text-1)' }}>
               days_remaining = {item.current_stock} ÷ {item.daily_consumption} ={' '}
               <strong>{item.days_remaining} days</strong>
             </div>
@@ -86,9 +90,9 @@ export default function ExplainRiskModal({ item, onClose }: ExplainRiskModalProp
           {item.incoming_stock > 0 && (
             <div style={{ color: 'var(--text-2)' }}>
               Incoming shipment of{' '}
-              <strong style={{ color: '#2563eb' }}>{item.incoming_stock} units</strong>{' '}
+              <strong style={{ color: 'var(--accent)' }}>{item.incoming_stock} units</strong>{' '}
               extends projected buffer to{' '}
-              <strong style={{ color: '#2563eb' }}>{item.projected_days_remaining} days</strong>.
+              <strong style={{ color: 'var(--accent)' }}>{item.projected_days_remaining} days</strong>.
             </div>
           )}
 
@@ -106,12 +110,12 @@ export default function ExplainRiskModal({ item, onClose }: ExplainRiskModalProp
 
         {/* Footer */}
         <div
-          className="px-5 py-3 flex justify-end"
+          className="px-4 sm:px-5 py-3 flex justify-end shrink-0"
           style={{ borderTop: '1px solid var(--border)', backgroundColor: 'var(--surface-2)' }}
         >
           <button
             onClick={onClose}
-            className="px-4 py-1.5 rounded text-xs font-semibold text-white transition-opacity hover:opacity-80"
+            className="px-4 py-2 rounded text-xs font-semibold transition-opacity hover:opacity-85"
             style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
           >
             Close

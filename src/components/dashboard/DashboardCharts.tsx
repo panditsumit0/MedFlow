@@ -89,7 +89,7 @@ export default function DashboardCharts() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
       {/* Chart 1 — Runway bar chart */}
       <div
-        className="rounded-lg p-5 flex flex-col justify-between"
+        className="rounded-lg p-3.5 sm:p-5 flex flex-col justify-between"
         style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
       >
         <div>
@@ -101,19 +101,20 @@ export default function DashboardCharts() {
           </p>
         </div>
 
-        <div className="h-60 mt-4">
+        <div className="h-52 sm:h-60 mt-4">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={paracetamolRunwayData}
               layout="vertical"
-              margin={{ top: 5, right: 20, left: 35, bottom: 5 }}
+              margin={{ top: 5, right: 15, left: 15, bottom: 5 }}
             >
               <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="var(--border)" />
               <XAxis type="number" unit="d" tick={{ fontSize: 11, fill: 'var(--text-3)' }} />
               <YAxis
                 type="category"
                 dataKey="facility"
-                tick={{ fontSize: 11, fill: 'var(--text-2)' }}
+                width={85}
+                tick={{ fontSize: 10, fill: 'var(--text-2)' }}
               />
               <Tooltip content={<RunwayTooltip />} />
               <Bar dataKey="days" radius={[0, 4, 4, 0]}>
@@ -126,17 +127,17 @@ export default function DashboardCharts() {
         </div>
 
         <div
-          className="pt-3 flex items-center justify-between text-[11px]"
+          className="pt-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[11px]"
           style={{ borderTop: '1px solid var(--border)', color: 'var(--text-3)' }}
         >
-          <span>Shortage warning threshold: 7 days</span>
+          <span>Shortage threshold: 7 days</span>
           <span>Red: Critical (&lt;4d) • Green: Safe</span>
         </div>
       </div>
 
       {/* Chart 2 — Trend line chart */}
       <div
-        className="rounded-lg p-5 flex flex-col justify-between"
+        className="rounded-lg p-3.5 sm:p-5 flex flex-col justify-between"
         style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
       >
         <div>
@@ -148,11 +149,11 @@ export default function DashboardCharts() {
           </p>
         </div>
 
-        <div className="h-60 mt-4">
+        <div className="h-52 sm:h-60 mt-4">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={consumptionTrendData}
-              margin={{ top: 10, right: 15, left: -10, bottom: 0 }}
+              margin={{ top: 10, right: 15, left: -15, bottom: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
               <XAxis dataKey="day" tick={{ fontSize: 11, fill: 'var(--text-3)' }} />
@@ -164,13 +165,13 @@ export default function DashboardCharts() {
               />
               <Line type="monotone" dataKey="Paracetamol" stroke="#ef4444" strokeWidth={2} dot={false} />
               <Line type="monotone" dataKey="IVFluids" name="IV Fluids" stroke="#3b82f6" strokeWidth={2} dot={false} />
-              <Line type="monotone" dataKey="Insulin" stroke="#8b5cf6" strokeWidth={2} dot={false} />
+              <Line type="monotone" dataKey="Insulin" stroke="#d97706" strokeWidth={2} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
         <div
-          className="pt-3 flex items-center justify-between text-[11px]"
+          className="pt-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[11px]"
           style={{ borderTop: '1px solid var(--border)', color: 'var(--text-3)' }}
         >
           <span>7-day aggregate tracking</span>

@@ -13,7 +13,7 @@ export default function RegionalStatusBanner({ alerts }: RegionalStatusBannerPro
       style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
     >
       <div
-        className="px-5 py-3.5 flex items-center justify-between"
+        className="px-4 sm:px-5 py-3 sm:py-3.5 flex flex-wrap items-center justify-between gap-2"
         style={{ backgroundColor: 'var(--surface-2)', borderBottom: '1px solid var(--border)' }}
       >
         <div className="flex items-center gap-2">
@@ -23,7 +23,7 @@ export default function RegionalStatusBanner({ alerts }: RegionalStatusBannerPro
           </h2>
         </div>
         <span
-          className="text-xs font-medium px-2.5 py-1 rounded-full"
+          className="text-xs font-medium px-2.5 py-1 rounded"
           style={{
             backgroundColor: alerts.length > 0 ? 'rgba(217,119,6,0.12)' : 'rgba(22,163,74,0.12)',
             color: alerts.length > 0 ? '#b45309' : '#16a34a',
@@ -33,7 +33,7 @@ export default function RegionalStatusBanner({ alerts }: RegionalStatusBannerPro
         </span>
       </div>
 
-      <div className="p-5 space-y-3">
+      <div className="p-3.5 sm:p-5 space-y-3">
         {alerts.length === 0 ? (
           <div className="flex items-center gap-2 text-sm" style={{ color: '#16a34a' }}>
             <CheckCircle2 className="w-4 h-4" />
@@ -45,7 +45,7 @@ export default function RegionalStatusBanner({ alerts }: RegionalStatusBannerPro
             return (
               <div
                 key={alert.id}
-                className="p-4 rounded-lg"
+                className="p-3 sm:p-4 rounded-lg"
                 style={{
                   border: `1px solid ${isCritical ? 'rgba(220,38,38,0.25)' : 'rgba(217,119,6,0.25)'}`,
                   backgroundColor: isCritical
@@ -53,8 +53,8 @@ export default function RegionalStatusBanner({ alerts }: RegionalStatusBannerPro
                     : 'rgba(217,119,6,0.06)',
                 }}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span className="text-sm font-semibold" style={{ color: 'var(--text-1)' }}>
                       {alert.medicine_name}
                     </span>

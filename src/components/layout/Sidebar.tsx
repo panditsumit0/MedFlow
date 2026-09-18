@@ -4,41 +4,28 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
-  LayoutDashboard,
-  MapPin,
-  Pill,
-  Building2,
-  TrendingDown,
-  ArrowLeftRight,
-  Bell,
-  SlidersHorizontal,
-  Activity,
+  LayoutDashboard, MapPin, Pill, Building2,
+  TrendingDown, ArrowLeftRight, Bell, SlidersHorizontal, Activity,
 } from 'lucide-react';
 
-interface NavItem {
-  name: string;
-  href: string;
-  icon: React.ElementType;
-  badge?: boolean;
-}
-
-const navItems: NavItem[] = [
-  { name: 'Dashboard',           href: '/',             icon: LayoutDashboard  },
-  { name: 'Regional Map',        href: '/map',           icon: MapPin           },
-  { name: 'Medicines',           href: '/medicines',     icon: Pill             },
-  { name: 'Facilities',          href: '/facilities',    icon: Building2        },
-  { name: 'Shortage Predictions',href: '/predictions',   icon: TrendingDown     },
-  { name: 'Redistribution',      href: '/redistribution',icon: ArrowLeftRight,  badge: true },
-  { name: 'Alerts',              href: '/alerts',        icon: Bell             },
-  { name: 'What-If Simulation',  href: '/simulation',    icon: SlidersHorizontal},
+const navItems = [
+  { name: 'Dashboard',            href: '/',              icon: LayoutDashboard   },
+  { name: 'Regional Map',         href: '/map',            icon: MapPin            },
+  { name: 'Medicines',            href: '/medicines',      icon: Pill              },
+  { name: 'Facilities',           href: '/facilities',     icon: Building2         },
+  { name: 'Shortage Predictions', href: '/predictions',    icon: TrendingDown      },
+  { name: 'Redistribution',       href: '/redistribution', icon: ArrowLeftRight,   badge: true },
+  { name: 'Alerts',               href: '/alerts',         icon: Bell              },
+  { name: 'What-If Simulation',   href: '/simulation',     icon: SlidersHorizontal },
 ];
 
 export default function Sidebar() {
   const pathname = usePathname();
 
   return (
+    /* Hidden on mobile, visible on lg+ */
     <aside
-      className="w-60 flex flex-col shrink-0 min-h-screen"
+      className="hidden lg:flex w-60 flex-col shrink-0 min-h-screen"
       style={{
         backgroundColor: 'var(--sidebar-bg)',
         transition: 'background-color 0.25s ease',
@@ -51,7 +38,7 @@ export default function Sidebar() {
             className="w-8 h-8 rounded-lg flex items-center justify-center"
             style={{ backgroundColor: 'var(--sidebar-brand-bg)' }}
           >
-            <Activity className="w-4 h-4 text-white" />
+            <Activity className="w-4 h-4" style={{ color: 'var(--sidebar-active-icon)' }} />
           </div>
           <div>
             <span className="font-bold text-base text-white tracking-tight">MedFlow</span>
@@ -121,18 +108,10 @@ export default function Sidebar() {
           </span>
         </div>
         <div className="flex items-center gap-3">
-          <Link
-            href="/privacy"
-            className="text-[10px] hover:underline"
-            style={{ color: 'var(--sidebar-section)' }}
-          >
+          <Link href="/privacy" className="text-[10px] hover:underline" style={{ color: 'var(--sidebar-section)' }}>
             Privacy
           </Link>
-          <Link
-            href="/terms"
-            className="text-[10px] hover:underline"
-            style={{ color: 'var(--sidebar-section)' }}
-          >
+          <Link href="/terms" className="text-[10px] hover:underline" style={{ color: 'var(--sidebar-section)' }}>
             Terms
           </Link>
         </div>
